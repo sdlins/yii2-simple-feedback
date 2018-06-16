@@ -34,6 +34,6 @@ class SimpleFeedback extends Widget
 
     public function run()
     {
-        $this->renders('feedback', ['model' => $this->feedbackModel]);
+        return $this->render('feedback', ['model' => $this->feedbackModel]);
     }
 }
