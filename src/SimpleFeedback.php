@@ -3,7 +3,7 @@
 namespace slinstj\widgets;
 
 use yii\base\Widget;
-use slinstj\widgets\models\SimpleFeedback as SimpleFeedbackModel;
+use slinstj\widgets\models\SimpleFeedbackModel;
 use yii\i18n\PhpMessageSource;
 
 class SimpleFeedback extends Widget

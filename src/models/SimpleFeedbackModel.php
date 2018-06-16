@@ -6,7 +6,7 @@ use yii\db\ActiveRecord;
 use yii\base\Exception;
 use slinstj\widgets\SimpleFeedback as SimpleFeedbackWidget;
 
-class SimpleFeedback extends ActiveRecord
+class SimpleFeedbackModel extends ActiveRecord
 {
     /**
      * @var SimpleFeedbackWidget
