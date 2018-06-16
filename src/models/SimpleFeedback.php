@@ -11,24 +11,34 @@ class SimpleFeedback extends ActiveRecord
     /**
      * @var SimpleFeedbackWidget
      */
-    protected $widgetInstance;
+    protected static $widgetInstance;
 
     public function __construct(SimpleFeedbackWidget $widgetInstance, $config = [])
     {
-        $this->setWidgetInstance($widgetInstance);
+        static::$widgetInstance = $widgetInstance;
         parent::__construct($config);
     }
 
     public function init()
     {
-        if (!$this->widgetInstance) {
+        if (! static::$widgetInstance) {
             throw new Exception(\Yii::t('sfi18n', 'Error: the widget instance must be passed via constructor to SimpleFeedback Model.'));
         }
     }
 
+    public static function getDb()
+    {
+        return \Yii::$app->get(static::$widgetInstance->dbConfigName);
+    }
+
+    public static function tableName()
+    {
+        return static::$widgetInstance->dbTable;
+    }
+
     public function rules()
     {
-        $widget = $this->widgetInstance;
+        $widget = static::$widgetInstance;
         $rules = $widget->feedbackModelRules;
 
         return !empty($rules) ? $rules : [
@@ -43,10 +53,5 @@ class SimpleFeedback extends ActiveRecord
             'grade' => \Yii::t('sfi18n', 'Grade'),
             'comment' => \Yii::t('sfi18n', 'Comment'),
         ];
-    }
-
-    public function setWidgetInstance(SimpleFeedbackWidget $widget)
-    {
-        $this->widgetInstance = $widget;
     }
 }
