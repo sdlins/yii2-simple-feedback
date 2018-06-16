@@ -13,12 +13,19 @@ class SimpleFeedback extends ActiveRecord
      */
     protected $widgetInstance;
 
+    public function __construct(SimpleFeedbackWidget $widgetInstance, $config = [])
+    {
+        $this->setWidgetInstance($widgetInstance);
+        parent::__construct($config);
+    }
+
     public function init()
     {
         if (!$this->widgetInstance) {
-            throw new Exception(\Yii::t('sfi18n', 'Error'));
+            throw new Exception(\Yii::t('sfi18n', 'Error: the widget instance must be passed via constructor to SimpleFeedback Model.'));
         }
     }
+
     public function rules()
     {
         $widget = $this->widgetInstance;

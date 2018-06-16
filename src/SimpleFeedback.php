@@ -29,8 +29,7 @@ class SimpleFeedback extends Widget
                 'sourceLanguage' => 'en-US',
             ];
         }
-        $this->feedbackModel = new SimpleFeedbackModel;
-        $this->feedbackModel->setWidgetInstance($this);
+        $this->feedbackModel = new SimpleFeedbackModel($this);
     }
 
     public function run()
