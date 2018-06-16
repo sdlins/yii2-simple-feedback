@@ -16,7 +16,7 @@ class SimpleFeedback extends ActiveRecord
     public function init()
     {
         if (!$this->widgetInstance) {
-            throw new Exception(\Yii::t('feedback', 'Error'));
+            throw new Exception(\Yii::t('sfi18n', 'Error'));
         }
     }
     public function rules()
@@ -33,8 +33,8 @@ class SimpleFeedback extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'grade' => \Yii::t('feedback', 'Grade'),
-            'comment' => \Yii::t('feedback', 'Comment'),
+            'grade' => \Yii::t('sfi18n', 'Grade'),
+            'comment' => \Yii::t('sfi18n', 'Comment'),
         ];
     }
 

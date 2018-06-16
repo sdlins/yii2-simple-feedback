@@ -4,6 +4,7 @@ namespace slinstj\widgets;
 
 use yii\base\Widget;
 use slinstj\widgets\models\SimpleFeedback as SimpleFeedbackModel;
+use yii\i18n\PhpMessageSource;
 
 class SimpleFeedback extends Widget
 {
@@ -21,6 +22,13 @@ class SimpleFeedback extends Widget
 
     public function init()
     {
+        if (!isset(\Yii::$app->i18n->translations['sfi18n'])) {
+            \Yii::$app->i18n->translations['sfi18n'] = [
+                'class' => PhpMessageSource::class,
+                'basePath' => __DIR__ . DIRECTORY_SEPARATOR . 'i18n',
+                'sourceLanguage' => 'en-US',
+            ];
+        }
         $this->feedbackModel = new SimpleFeedbackModel;
         $this->feedbackModel->setWidgetInstance($this);
     }
