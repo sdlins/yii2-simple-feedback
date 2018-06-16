@@ -44,6 +44,7 @@ class SimpleFeedback extends ActiveRecord
         return !empty($rules) ? $rules : [
             [[$widget->dbGradeField], 'in', 'range' => [1, 2, 3, 4, 5]],
             [[$widget->dbCommentField], 'string', 'max' => 1024],
+            [[$widget->dbTargetField], 'string', 'max' => 1024],
         ];
     }
 
