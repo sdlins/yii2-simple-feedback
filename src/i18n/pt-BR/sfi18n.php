@@ -7,5 +7,5 @@ return [
     'Bad' => 'Ruim',
     'Regular' => 'Regular',
     'Good' => 'Bom',
-    'Excellent!' => 'Excelente',
+    'Excellent' => 'Excelente',
 ];
