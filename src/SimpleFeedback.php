@@ -8,6 +8,8 @@ use yii\i18n\PhpMessageSource;
 
 class SimpleFeedback extends Widget
 {
+    const SF_PLACEHOLDER = 'simplefeedback';
+
     public $dbConfigName = 'db';
     public $dbTable = 'simple_feedback';
     public $dbGradeField = 'grade';
@@ -30,10 +32,16 @@ class SimpleFeedback extends Widget
             ];
         }
         $this->feedbackModel = new SimpleFeedbackModel($this);
+        ob_start();
     }
 
     public function run()
     {
-        return $this->render('feedback', ['model' => $this->feedbackModel]);
+        $content = ob_get_clean();
+        if (preg_match('/\{' . static::SF_PLACEHOLDER . '\}/', $content) !== 1) {
+            $content .= '{' . static::SF_PLACEHOLDER . '}';
+        }
+        $form = $this->render('feedback', ['model' => $this->feedbackModel]);
+        return strtr($content, ['{' . static::SF_PLACEHOLDER . '}' => $form]);
     }
 }
