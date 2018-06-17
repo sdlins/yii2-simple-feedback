@@ -75,5 +75,7 @@ $this->registerCss($css);
         <?= Html::submitButton(\Yii::t('app', 'Submit')) ?>
     <?php ActiveForm::end() ?>
 <?php else: ?>
-    <?= $_GET['sfResponse'] ?>
+    <div class="alert alert-<?= $_GET['sfResponseType'] ?? 'default' ?>">
+        <?= $_GET['sfResponse'] ?>
+    </div>
 <?php endif ?>
