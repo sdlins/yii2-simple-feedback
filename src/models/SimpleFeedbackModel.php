@@ -11,13 +11,16 @@ class SimpleFeedbackModel extends ActiveRecord
 {
     public $dbConfigName = 'db';
     public $dbTable = 'simple_feedback';
+
     public $ratingField = 'rating';
-    public $ratingLabel = 'Rating';
     public $commentField = 'comment';
-    public $commentLabel = 'Comment';
     public $targetField = 'target';
     public $ratedAtField = 'rated_at';
     public $ratedByField = 'rated_by';
+
+    public $ratingLabel = 'Rating';
+    public $commentLabel = 'Comment';
+
     public $rules = [];
 
     public function init()
