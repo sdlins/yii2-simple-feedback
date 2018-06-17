@@ -18,7 +18,7 @@ class SimpleFeedback extends Widget
 
     protected $feedbackModel;
     public $feedbackModelRules = [];
-
+    public $formAction = ['site/rating'];
     public $isGradeAvailable = true;
     public $isCommentAvailable = true;
 
