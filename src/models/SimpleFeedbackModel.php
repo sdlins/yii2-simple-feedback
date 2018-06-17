@@ -8,51 +8,44 @@ use slinstj\widgets\SimpleFeedback as SimpleFeedbackWidget;
 
 class SimpleFeedbackModel extends ActiveRecord
 {
-    /**
-     * @var SimpleFeedbackWidget
-     */
-    protected static $widgetInstance;
-
-    public function __construct(SimpleFeedbackWidget $widgetInstance, $config = [])
-    {
-        static::$widgetInstance = $widgetInstance;
-        parent::__construct($config);
-    }
+    public $dbConfigName = 'db';
+    public $dbTable = 'simple_feedback';
+    public $gradeField = 'grade';
+    public $gradeLabel = 'Grade';
+    public $commentField = 'comment';
+    public $commentLabel = 'Comment';
+    public $targetField = 'target';
+    public $rules = [];
 
     public function init()
     {
-        if (! static::$widgetInstance) {
-            throw new Exception(\Yii::t('sfi18n', 'Error: the widget instance must be passed via constructor to SimpleFeedback Model.'));
-        }
+        \Yii::$app->params['sfDbConfigName'] = $this->dbConfigName;
+        \Yii::$app->params['sfDbTable'] = $this->dbTable;
     }
 
     public static function getDb()
     {
-        return \Yii::$app->get(static::$widgetInstance->dbConfigName);
+        return \Yii::$app->get(\Yii::$app->params['sfDbConfigName']);
     }
 
     public static function tableName()
     {
-        return static::$widgetInstance->dbTable;
+        return \Yii::$app->params['sfDbTable'];
     }
 
     public function rules()
     {
-        $widget = static::$widgetInstance;
-        $rules = $widget->feedbackModelRules;
-
-        return !empty($rules) ? $rules : [
-            [[$widget->dbGradeField], 'in', 'range' => [1, 2, 3, 4, 5]],
-            [[$widget->dbCommentField], 'string', 'max' => 1024],
-            [[$widget->dbTargetField], 'string', 'max' => 1024],
+        return !empty($this->rules) ? $this->rules : [
+            [[$this->gradeField], 'in', 'range' => [1, 2, 3, 4, 5]],
+            [[$this->commentField, $this->targetField], 'string', 'max' => 1024],
         ];
     }
 
     public function attributeLabels()
     {
         return [
-            'grade' => \Yii::t('sfi18n', 'Grade'),
-            'comment' => \Yii::t('sfi18n', 'Comment'),
+            $this->gradeField => \Yii::t('app', $this->gradeLabel),
+            $this->commentField => \Yii::t('app', $this->commentLabel),
         ];
     }
 }

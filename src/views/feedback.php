@@ -35,11 +35,12 @@ $this->registerCss($css);
         });
     }
 </script>
+
 <?php if (empty($_GET['sfResponse'])): ?>
     <?php $form = ActiveForm::begin(['action' => Url::to($this->context->formAction)]) ?>
         <?php if ($this->context->isGradeAvailable): ?>
-            <input type="hidden" name="sfReferrer" value="<?= Url::to($this->context->formAction) ?>">
-            <?= $form->field($model, $this->context->dbGradeField, [
+            <input type="hidden" name="sfReferrer" value="<?= Url::to('') ?>">
+            <?= $form->field($model, $model->gradeField, [
                 'options' => [
                     'class' => '',
                 ],
@@ -69,9 +70,9 @@ $this->registerCss($css);
                 </li>
             </ul>
         <?php endif ?>
-        <?= $this->context->isCommentAvailable ? $form->field($model, $this->context->dbCommentField)->textarea() : '' ?>
-        <?= $form->field($model, $this->context->dbTargetField)->hiddenInput()->label(false) ?>
-        <?= Html::submitButton(\Yii::t('sfi18n', 'Submit')) ?>
+        <?= $this->context->isCommentAvailable ? $form->field($model, $model->commentField)->textarea() : '' ?>
+        <?= $form->field($model, $model->targetField)->hiddenInput()->label(false) ?>
+        <?= Html::submitButton(\Yii::t('app', 'Submit')) ?>
     <?php ActiveForm::end() ?>
 <?php else: ?>
     <?= $_GET['sfResponse'] ?>

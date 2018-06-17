@@ -10,28 +10,13 @@ class SimpleFeedback extends Widget
 {
     const SF_PLACEHOLDER = 'simplefeedback';
 
-    public $dbConfigName = 'db';
-    public $dbTable = 'simple_feedback';
-    public $dbGradeField = 'grade';
-    public $dbCommentField = 'comment';
-    public $dbTargetField = 'target';
-
-    protected $feedbackModel;
-    public $feedbackModelRules = [];
     public $formAction = ['site/rating'];
     public $isGradeAvailable = true;
     public $isCommentAvailable = true;
+    public $modelConfigs;
 
     public function init()
     {
-        if (!isset(\Yii::$app->i18n->translations['sfi18n'])) {
-            \Yii::$app->i18n->translations['sfi18n'] = [
-                'class' => PhpMessageSource::class,
-                'basePath' => __DIR__ . DIRECTORY_SEPARATOR . 'i18n',
-                'sourceLanguage' => 'en-US',
-            ];
-        }
-        $this->feedbackModel = new SimpleFeedbackModel($this);
         ob_start();
     }
 
@@ -41,7 +26,9 @@ class SimpleFeedback extends Widget
         if (preg_match('/\{' . static::SF_PLACEHOLDER . '\}/', $content) !== 1) {
             $content .= '{' . static::SF_PLACEHOLDER . '}';
         }
-        $form = $this->render('feedback', ['model' => $this->feedbackModel]);
+
+        $model = new SimpleFeedbackModel($this->modelConfigs);
+        $form = $this->render('feedback', ['model' => $model]);
         return strtr($content, ['{' . static::SF_PLACEHOLDER . '}' => $form]);
     }
 }
