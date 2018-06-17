@@ -11,7 +11,7 @@ class SimpleFeedbackWidget extends Widget
     const SF_PLACEHOLDER = 'simplefeedback';
 
     public $formAction = ['site/rating'];
-    public $isGradeAvailable = true;
+    public $isRatingAvailable = true;
     public $isCommentAvailable = true;
     public $modelConfigs;
 

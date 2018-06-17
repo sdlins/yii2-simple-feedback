@@ -10,8 +10,8 @@ class SimpleFeedbackModel extends ActiveRecord
 {
     public $dbConfigName = 'db';
     public $dbTable = 'simple_feedback';
-    public $gradeField = 'grade';
-    public $gradeLabel = 'Grade';
+    public $ratingField = 'rating';
+    public $ratingLabel = 'Rating';
     public $commentField = 'comment';
     public $commentLabel = 'Comment';
     public $targetField = 'target';
@@ -36,7 +36,7 @@ class SimpleFeedbackModel extends ActiveRecord
     public function rules()
     {
         return !empty($this->rules) ? $this->rules : [
-            [[$this->gradeField], 'in', 'range' => [1, 2, 3, 4, 5]],
+            [[$this->ratingField], 'in', 'range' => [1, 2, 3, 4, 5]],
             [[$this->commentField, $this->targetField], 'string', 'max' => 1024],
         ];
     }
@@ -44,7 +44,7 @@ class SimpleFeedbackModel extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            $this->gradeField => \Yii::t('app', $this->gradeLabel),
+            $this->ratingField => \Yii::t('app', $this->ratingLabel),
             $this->commentField => \Yii::t('app', $this->commentLabel),
         ];
     }

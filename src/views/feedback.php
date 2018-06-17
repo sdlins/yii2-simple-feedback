@@ -21,15 +21,15 @@ CSS;
 $this->registerCss($css);
 ?>
 <script>
-    function sfUpdateGrade(elem) {
-        var grade = elem.dataset.grade;
-        var inputGrade = document.getElementById('grade');
+    function sfUpdateRating(elem) {
+        var rating = elem.dataset.rating;
+        var inputRating = document.getElementById('rating');
         var stars = Array.prototype.slice.call(document.getElementsByClassName('sf-star'));
 
-        inputGrade.value = grade;
+        inputRating.value = rating;
         stars.forEach(function(star) {
             star.style.color = '#aaa'
-            if (star.dataset.grade <= grade) {
+            if (star.dataset.rating <= rating) {
                 star.style.color = '#333'
             }
         });
@@ -38,9 +38,9 @@ $this->registerCss($css);
 
 <?php if (empty($_GET['sfResponse'])): ?>
     <?php $form = ActiveForm::begin(['action' => Url::to($this->context->formAction)]) ?>
-        <?php if ($this->context->isGradeAvailable): ?>
+        <?php if ($this->context->isRatingAvailable): ?>
             <input type="hidden" name="sfReferrer" value="<?= Url::to('') ?>">
-            <?= $form->field($model, $model->gradeField, [
+            <?= $form->field($model, $model->ratingField, [
                 'options' => [
                     'class' => '',
                 ],
@@ -48,24 +48,24 @@ $this->registerCss($css);
                     'tag' => null,
                 ],
             ])->hiddenInput([
-                'id' => 'grade',
-                'name' => 'SimpleFeedbackModel[grade]',
+                'id' => 'rating',
+                'name' => 'SimpleFeedbackModel[rating]',
                 'value' => 0,
             ]) ?>
             <ul class="sf">
-                <li class="sf-star" onclick="sfUpdateGrade(this)" data-grade="1">
+                <li class="sf-star" onclick="sfUpdateRating(this)" data-rating="1">
                     <i class="glyphicon glyphicon-star"></i>
                 </li>
-                <li class="sf-star" onclick="sfUpdateGrade(this)" data-grade="2">
+                <li class="sf-star" onclick="sfUpdateRating(this)" data-rating="2">
                     <i class="glyphicon glyphicon-star"></i>
                 </li>
-                <li class="sf-star" onclick="sfUpdateGrade(this)" data-grade="3">
+                <li class="sf-star" onclick="sfUpdateRating(this)" data-rating="3">
                     <i class="glyphicon glyphicon-star"></i>
                 </li>
-                <li class="sf-star" onclick="sfUpdateGrade(this)" data-grade="4">
+                <li class="sf-star" onclick="sfUpdateRating(this)" data-rating="4">
                     <i class="glyphicon glyphicon-star"></i>
                 </li>
-                <li class="sf-star" onclick="sfUpdateGrade(this)" data-grade="5">
+                <li class="sf-star" onclick="sfUpdateRating(this)" data-rating="5">
                     <i class="glyphicon glyphicon-star"></i>
                 </li>
             </ul>
