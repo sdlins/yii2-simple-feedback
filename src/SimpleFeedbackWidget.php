@@ -1,12 +1,12 @@
 <?php
 
-namespace slinstj\widgets;
+namespace slinstj\widgets\SimpleFeedback;
 
 use yii\base\Widget;
-use slinstj\widgets\models\SimpleFeedbackModel;
+use slinstj\widgets\SimpleFeedback\models\SimpleFeedbackModel;
 use yii\i18n\PhpMessageSource;
 
-class SimpleFeedback extends Widget
+class SimpleFeedbackWidget extends Widget
 {
     const SF_PLACEHOLDER = 'simplefeedback';
 

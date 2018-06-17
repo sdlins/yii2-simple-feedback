@@ -1,7 +1,7 @@
 <?php
 
 use yii\widgets\ActiveForm;
-use slinstj\widgets\SimpleFeedback;
+use slinstj\widgets\SimpleFeedback\SimpleFeedback;
 use yii\helpers\Url;
 use yii\helpers\Html;
 

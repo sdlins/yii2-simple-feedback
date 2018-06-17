@@ -1,10 +1,10 @@
 <?php
 
-namespace slinstj\widgets\models;
+namespace slinstj\widgets\SimpleFeedback\models;
 
 use yii\db\ActiveRecord;
 use yii\base\Exception;
-use slinstj\widgets\SimpleFeedback as SimpleFeedbackWidget;
+use slinstj\widgets\SimpleFeedback\SimpleFeedbackWidget;
 
 class SimpleFeedbackModel extends ActiveRecord
 {

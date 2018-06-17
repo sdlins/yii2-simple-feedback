@@ -13,7 +13,7 @@
 	],
 	"autoload": {
 		"psr-4": {
-			"slinstj\\widgets\\": "src/"
+			"slinstj\\widgets\\SimpleFeedback\\": "src/"
 		}
 	}
 }
