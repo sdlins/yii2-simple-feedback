@@ -21,12 +21,26 @@ class SimpleFeedbackModel extends ActiveRecord
     public $ratingLabel = 'Rating';
     public $commentLabel = 'Comment';
 
+    public $targetValue;
     public $rules = [];
 
     public function init()
     {
         \Yii::$app->params['sfDbConfigName'] = $this->dbConfigName;
         \Yii::$app->params['sfDbTable'] = $this->dbTable;
+
+        $data['model'] = $this;
+        $data['callback'] = $this->targetValue;
+
+        $this->on(static::EVENT_BEFORE_INSERT, function($event) {
+            $model = $event->data['model'];
+            $callback = $event->data['callback'];
+            If ($model->targetValue === null) {
+                $model->{$model->targetField} = \Yii::$app->request->getAbsoluteUrl();
+            } elseif (is_callable($model->targetValue)) {
+                $model->{$model->targetField} = call_user_func($model->targetValue, $model);
+            }
+        }, $data);
     }
 
     public static function getDb()
