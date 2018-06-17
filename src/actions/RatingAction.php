@@ -12,6 +12,8 @@ class RatingAction extends Action
     public function run()
     {
         $model = new SimpleFeedbackModel($this->modelConfigs);
+        $model->{$model->ratedByField} = \Yii::$app->user->id;
+
         $returnUrl = $_POST['sfReferrer'] ?? \Yii::$app->request->referrer ?? \Yii::$app->homeUrl;
         $returnUrl .= (strpos($returnUrl, '?') === false ? '?' : '&');
 

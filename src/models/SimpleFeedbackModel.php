@@ -17,6 +17,7 @@ class SimpleFeedbackModel extends ActiveRecord
     public $commentLabel = 'Comment';
     public $targetField = 'target';
     public $ratedAtField = 'rated_at';
+    public $ratedByField = 'rated_by';
     public $rules = [];
 
     public function init()
