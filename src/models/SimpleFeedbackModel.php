@@ -5,6 +5,7 @@ namespace slinstj\widgets\SimpleFeedback\models;
 use yii\db\ActiveRecord;
 use yii\base\Exception;
 use slinstj\widgets\SimpleFeedback\SimpleFeedbackWidget;
+use yii\behaviors\TimestampBehavior;
 
 class SimpleFeedbackModel extends ActiveRecord
 {
@@ -15,6 +16,7 @@ class SimpleFeedbackModel extends ActiveRecord
     public $commentField = 'comment';
     public $commentLabel = 'Comment';
     public $targetField = 'target';
+    public $ratedAtField = 'rated_at';
     public $rules = [];
 
     public function init()
@@ -31,6 +33,18 @@ class SimpleFeedbackModel extends ActiveRecord
     public static function tableName()
     {
         return \Yii::$app->params['sfDbTable'];
+    }
+
+    public function behaviors()
+    {
+        return [
+            'timestampBehavior' => [
+                'class' => TimestampBehavior::class,
+                'createdAtAttribute' => $this->ratedAtField,
+                'updatedAtAttribute' => false,
+                'value' => date('Y-m-d H:i:s'),
+            ],
+        ];
     }
 
     public function rules()
