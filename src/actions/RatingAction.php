@@ -7,9 +7,11 @@ use slinstj\widgets\SimpleFeedback\models\SimpleFeedbackModel;
 
 class RatingAction extends Action
 {
+    public $modelConfigs = [];
+
     public function run()
     {
-        $model = new SimpleFeedbackModel;
+        $model = new SimpleFeedbackModel($this->modelConfigs);
         $returnUrl = $_POST['sfReferrer'] ?? \Yii::$app->request->referrer ?? \Yii::$app->homeUrl;
         $returnUrl .= (strpos($returnUrl, '?') === false ? '?' : '&');
 
