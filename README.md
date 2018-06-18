@@ -101,3 +101,46 @@ public function actions()
             ],
 ```
 And it is done.
+
+**VERY IMPORTANT**
+
+If you have changed default configs for the model (`modelConfigs`), for example, `dbTable`, `targetValue`, etc, you **must** pass the same configs when configuring your action:
+```php
+// MyController
+...
+public function actions()
+    {
+        return [
+            'rating' => [
+                'class' => 'slinstj\widgets\SimpleFeedback\actions\RatingAction',
+                'modelConfigs' => [
+                    'dbTable' => 'my_custom_table',
+                    'targetValue' => function($model) {
+                        // do your logic to define the target value
+                        return \Yii::$app->params['something'];
+                    }
+                ],
+            ],
+```
+
+
+
+### Using special placeholder {simplefeedback}
+If for any reason you need insert simple feedback inside a text you can
+use `begin([$configs])`, `end()` and the special placeholder to achieve it:
+
+```php
+// in your view
+use \slinstj\widgets\SimpleFeedback\SimpleFeedbackWidget;
+?>
+...
+<?php SimpleFeedbackWidget::begin([
+    // configs here
+]) ?>
+    This text is more readable since we are using our widget
+    through a special placeholder.
+    Now I can keep my text clean but still have the widget.
+    <hr>
+    {simplefeedback}
+<?php SimpleFeedbackWidget::end() ?>
+```
