@@ -15,7 +15,13 @@ $css = <<< CSS
         cursor: pointer;
     }
     .sf-star{
-        color: #aaa
+        color: #aaa;
+    }
+    .sf-star-checked{
+        color: #333;
+    }
+    .sf-star-unchecked{
+        color: #aaa;
     }
 CSS;
 $this->registerCss($css);
@@ -28,9 +34,9 @@ $this->registerCss($css);
 
         inputRating.value = rating;
         stars.forEach(function(star) {
-            star.style.color = '#aaa'
+            star.classList.remove('sf-star-checked')
             if (star.dataset.rating <= rating) {
-                star.style.color = '#333'
+                star.classList.add('sf-star-checked')
             }
         });
     }
@@ -53,19 +59,19 @@ $this->registerCss($css);
                 'value' => 0,
             ]) ?>
             <ul class="sf">
-                <li class="sf-star" onclick="sfUpdateRating(this)" data-rating="1">
+                <li class="sf-star st-star-unchecked" onclick="sfUpdateRating(this)" data-rating="1">
                     <i class="glyphicon glyphicon-star"></i>
                 </li>
-                <li class="sf-star" onclick="sfUpdateRating(this)" data-rating="2">
+                <li class="sf-star st-star-unchecked" onclick="sfUpdateRating(this)" data-rating="2">
                     <i class="glyphicon glyphicon-star"></i>
                 </li>
-                <li class="sf-star" onclick="sfUpdateRating(this)" data-rating="3">
+                <li class="sf-star st-star-unchecked" onclick="sfUpdateRating(this)" data-rating="3">
                     <i class="glyphicon glyphicon-star"></i>
                 </li>
-                <li class="sf-star" onclick="sfUpdateRating(this)" data-rating="4">
+                <li class="sf-star st-star-unchecked" onclick="sfUpdateRating(this)" data-rating="4">
                     <i class="glyphicon glyphicon-star"></i>
                 </li>
-                <li class="sf-star" onclick="sfUpdateRating(this)" data-rating="5">
+                <li class="sf-star st-star-unchecked" onclick="sfUpdateRating(this)" data-rating="5">
                     <i class="glyphicon glyphicon-star"></i>
                 </li>
             </ul>
