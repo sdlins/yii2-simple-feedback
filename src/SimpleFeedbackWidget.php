@@ -10,9 +10,23 @@ class SimpleFeedbackWidget extends Widget
 {
     const SF_PLACEHOLDER = 'simplefeedback';
 
+    /**
+     * @var array A valid route where the form data will be posted to. Defaults to
+     * ['site/rating'].
+     */
     public $formAction = ['site/rating'];
+    /**
+     * @var bool Defines whether the rating field should be available in the widget.
+     */
     public $isRatingAvailable = true;
+    /**
+     * @var bool Defines whether the comment field should be available in the widget.
+     */
     public $isCommentAvailable = true;
+    /**
+     * @var array Configs that will be used to initialize the model. Please, refer
+     * to SimpleFeedbackModel docblocks to see configs available.
+     */
     public $modelConfigs;
 
     public function init()
