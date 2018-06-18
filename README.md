@@ -39,7 +39,11 @@ public function actions()
 # in your root directory, run:
 php yii migrate --migrationPath=@vendor/slinstj/yii2-simple-feedback/src/migrations
 ```
-And it is done!
+**And it is done!**
+
+After the user do the rate, a success or danger alert will be displayed
+in substitution to the widget:
+![Yii2 Simple Feedback Success Response](simple-feedback-success-response.png)
 
 ## Advanced Usage
 You can change almost all default configs. These are some configs you can change:
