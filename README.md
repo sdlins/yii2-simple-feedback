@@ -40,3 +40,13 @@ public function actions()
 php yii migrate --migrationPath=@vendor/slinstj/yii2-simple-feedback/src/migrations
 ```
 And it is done!
+
+## Advanced Usage
+You can change almost all default configs. These are some configs you can change:
+
+* DB config name;
+* Table and fields names;
+* Labels used for rating and comment attributes;
+* Rules used for the form model;
+* Route that will receive the post form data;
+* The target value identifying what is being rated. You can use either a string or a callback function;
