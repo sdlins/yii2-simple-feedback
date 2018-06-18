@@ -148,3 +148,7 @@ use \slinstj\widgets\SimpleFeedback\SimpleFeedbackWidget;
     {simplefeedback}
 <?php SimpleFeedbackWidget::end() ?>
 ```
+
+## Next releases
+- [ ] Ajax implementation;
+- [ ] Handle repeated ratings;
