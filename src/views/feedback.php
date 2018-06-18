@@ -16,9 +16,10 @@ $css = <<< CSS
     }
     .sf-star{
         color: #aaa;
+        text-shadow: 1px 2px 3px #222;
     }
     .sf-star-checked{
-        color: #333;
+        color: #ff0;
     }
     .sf-star-unchecked{
         color: #aaa;
