@@ -9,19 +9,66 @@ use yii\behaviors\TimestampBehavior;
 
 class SimpleFeedbackModel extends ActiveRecord
 {
+    /**
+     * @var string The name of the db config that should be used by this model.
+     */
     public $dbConfigName = 'db';
+    /**
+     * @var string The name of the table that should be used by this model.
+     */
     public $dbTable = 'simple_feedback';
 
+    /**
+     * @var string The name of the table field where user rating should be saved.
+     */
     public $ratingField = 'rating';
+    /**
+     * @var string The name of the table field where user comment should be saved.
+     */
     public $commentField = 'comment';
+    /**
+     * @var string The name of the table field where target information should be
+     * saved. Defaults to absolute url where the rating was done.
+     */
     public $targetField = 'target';
+    /**
+     * @var string The name of the table field where the date of the rating should
+     * be saved. It will be automatically filled with the current date.
+     */
     public $ratedAtField = 'rated_at';
+    /**
+     * @var string The name of the table field where the user id should be saved.
+     * It will be automatically filled with the current user id (`\Yii::$app->user->id`)
+     */
     public $ratedByField = 'rated_by';
 
+    /**
+     * @var string The label that should be used for the rating attribute.
+     */
     public $ratingLabel = 'Rating';
+    /**
+     * @var string The label that should be used for the comment attribute.
+     */
     public $commentLabel = 'Comment';
 
+    /**
+     * You will use target value mainly to identify what is being rated in your system.
+     * For example, you can set this value to something like 'Land page' or
+     * 'My System Beta' so that later you can use those names to filter their ratings
+     * in your table.
+     * You also can use a callback function to generate the value you want. That function
+     * will receive this model as parameter.
+     *
+     * @var string|callable A value or a callable function.
+     */
     public $targetValue;
+    /**
+     * @var array The model rules that should be used with this model. Defaults to:
+     * [
+     *      [[$this->ratingField], 'in', 'range' => [1, 2, 3, 4, 5]],
+     *      [[$this->commentField, $this->targetField], 'string', 'max' => 1024],
+     * ]
+     */
     public $rules = [];
 
     public function init()
