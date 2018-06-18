@@ -127,7 +127,7 @@ public function actions()
 
 ### Using special placeholder {simplefeedback}
 If for any reason you need insert simple feedback inside a text you can
-use `begin([$configs])`, `end()` and the special placeholder to achieve it:
+*also* use `begin()`, `end()` and the special placeholder to achieve it:
 
 ```php
 // in your view
