@@ -43,7 +43,11 @@ php yii migrate --migrationPath=@vendor/slinstj/yii2-simple-feedback/src/migrati
 
 After the user do the rate, a success or danger alert will be displayed
 in substitution to the widget:
+
 ![Yii2 Simple Feedback Success Response](simple-feedback-success-response.png)
+
+## Supported languages
+Brazillian Portuguese and English.
 
 ## Advanced Usage
 You can change almost all default configs. These are some configs you can change:
