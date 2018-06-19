@@ -42,7 +42,6 @@ $this->registerCss($css);
         });
     }
 </script>
-
 <?php if (empty($_GET['sfResponse'])): ?>
     <?php $form = ActiveForm::begin(['action' => Url::to($this->context->formAction)]) ?>
         <?php if ($this->context->isRatingAvailable): ?>
@@ -79,7 +78,7 @@ $this->registerCss($css);
         <?php endif ?>
         <?= $this->context->isCommentAvailable ? $form->field($model, $model->commentField)->textarea() : '' ?>
         <?= $form->field($model, $model->targetField)->hiddenInput()->label(false) ?>
-        <?= Html::submitButton(\Yii::t('app', 'Submit')) ?>
+        <?= Html::submitButton(\Yii::t('sfi18n', 'Submit')) ?>
     <?php ActiveForm::end() ?>
 <?php else: ?>
     <div class="alert alert-<?= $_GET['sfResponseType'] ?? 'default' ?>">

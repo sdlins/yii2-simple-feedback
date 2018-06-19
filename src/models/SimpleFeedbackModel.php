@@ -82,6 +82,7 @@ class SimpleFeedbackModel extends ActiveRecord
     {
         \Yii::$app->params['sfDbConfigName'] = $this->dbConfigName;
         \Yii::$app->params['sfDbTable'] = $this->dbTable;
+        SimpleFeedbackWidget::registerTranslations();
 
         $data['model'] = $this;
         $data['callback'] = $this->targetValue;
@@ -130,8 +131,8 @@ class SimpleFeedbackModel extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            $this->ratingField => \Yii::t('app', $this->ratingLabel),
-            $this->commentField => \Yii::t('app', $this->commentLabel),
+            $this->ratingField => \Yii::t('sfi18n', $this->ratingLabel),
+            $this->commentField => \Yii::t('sfi18n', $this->commentLabel),
         ];
     }
 }

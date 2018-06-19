@@ -38,7 +38,18 @@ class SimpleFeedbackWidget extends Widget
 
     public function init()
     {
+        parent::init();
+        static::registerTranslations();
         ob_start();
+    }
+
+    public static function registerTranslations()
+    {
+        \Yii::$app->i18n->translations['sfi18n*'] = [
+            'class' => 'yii\i18n\PhpMessageSource',
+            'basePath' => __DIR__ . '/i18n',
+            'sourceLanguage' => 'en-US',
+        ];
     }
 
     public function run()

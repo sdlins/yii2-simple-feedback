@@ -25,10 +25,10 @@ class RatingAction extends Action
         $returnUrl .= (strpos($returnUrl, '?') === false ? '?' : '&');
 
         if ($model->load(\Yii::$app->request->post()) && $model->save()) {
-            $returnUrl .= 'sfResponse=' . urlencode(\Yii::t('app', 'Thanks for your rating!'));
+            $returnUrl .= 'sfResponse=' . urlencode(\Yii::t('sfi18n', 'Thanks for your feedback!'));
             $returnUrl .= '&sfResponseType=success';
         } else {
-            $returnUrl .= 'sfResponse=' . urlencode(\Yii::t('app', 'Sorry! Your rating could not be saved at this moment.'));
+            $returnUrl .= 'sfResponse=' . urlencode(\Yii::t('sfi18n', 'Sorry! Your feedback could not be saved at this moment.'));
             $returnUrl .= '&sfResponseType=danger';
         }
         return $this->controller->redirect($returnUrl);
