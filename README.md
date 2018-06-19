@@ -6,7 +6,7 @@ Rating and comment feedback system that works out of the box for Yii2.
 
 ## Installation
 ```php
-composer require slinstj/yii2-simple-feedback
+composer require "slinstj/yii2-simple-feedback:~1.0"
 ```
 
 ## The most simple way to use
