@@ -24,14 +24,16 @@ use \slinstj\widgets\SimpleFeedback\SimpleFeedbackWidget;
 
 2 - Config the action to save the feedback data:
 ```php
-// in SiteController
+// SiteController
 ...
 public function actions()
-    {
-        return [
-            'rating' => [
-                'class' => 'slinstj\widgets\SimpleFeedback\actions\RatingAction',
-            ],
+{
+    return [
+        'rating' => [
+            'class' => 'slinstj\widgets\SimpleFeedback\actions\RatingAction',
+        ],
+    ];
+}
 ```
 
 3 - Run migration to create the table where ratings will be saved:
