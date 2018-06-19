@@ -1,6 +1,21 @@
 {
 	"name": "slinstj/yii2-simple-feedback",
+	"description": "Rating and comment feedback system that works out of the box for Yii2.",
+	"authors": [
+		{
+			"name": "Sidney Lins",
+			"email": "slinstj@gmail.com",
+		}
+	],
 	"type": "yii2-extension",
+	"keywords": [
+		"yii2",
+		"feedback",
+		"rating",
+		"comment"
+	],
+	"homepage": "https://github.com/slinstj/yii2-simple-feedback",
+	"license": "MIT",
 	"require": {
 		"php": "~7.1",
 		"yiisoft/yii2": "~2.0.15"
