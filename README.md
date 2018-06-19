@@ -130,7 +130,22 @@ public function actions()
                 ],
             ],
 ```
-
+Or, if you preffer to use your own inline action, you should pass those custom configs when instantiating `SimpleFeedbackModel`. For example:
+```php
+// MyController
+...
+public function myInlineAction()
+{
+    $model = new SimpleFeedbackModel([
+        'dbTable' => 'my_custom_table',
+        'targetValue' => function($model) {
+            // do your logic to define the target value
+            return \Yii::$app->params['something'];
+        }
+    ]);
+    ...
+}
+```
 
 
 ### Using special placeholder {simplefeedback}
