@@ -1,4 +1,8 @@
 <?php
+/**
+ * @link https://github.com/slinstj/yii2-simple-feedback
+ * @license https://github.com/slinstj/yii2-simple-feedback/LICENSE
+ */
 
 namespace slinstj\widgets\SimpleFeedback;
 
@@ -6,6 +10,9 @@ use yii\base\Widget;
 use slinstj\widgets\SimpleFeedback\models\SimpleFeedbackModel;
 use yii\i18n\PhpMessageSource;
 
+/**
+ * @author Sidney Lins <slinstj@gmail.com>
+ */
 class SimpleFeedbackWidget extends Widget
 {
     const SF_PLACEHOLDER = 'simplefeedback';

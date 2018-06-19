@@ -1,4 +1,8 @@
 <?php
+/**
+ * @link https://github.com/slinstj/yii2-simple-feedback
+ * @license https://github.com/slinstj/yii2-simple-feedback/LICENSE
+ */
 
 namespace slinstj\widgets\SimpleFeedback\models;
 
@@ -7,6 +11,9 @@ use yii\base\Exception;
 use slinstj\widgets\SimpleFeedback\SimpleFeedbackWidget;
 use yii\behaviors\TimestampBehavior;
 
+/**
+ * @author Sidney Lins <slinstj@gmail.com>
+ */
 class SimpleFeedbackModel extends ActiveRecord
 {
     /**

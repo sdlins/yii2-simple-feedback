@@ -1,10 +1,17 @@
 <?php
+/**
+ * @link https://github.com/slinstj/yii2-simple-feedback
+ * @license https://github.com/slinstj/yii2-simple-feedback/LICENSE
+ */
 
 namespace slinstj\widgets\SimpleFeedback\actions;
 
 use yii\base\Action;
 use slinstj\widgets\SimpleFeedback\models\SimpleFeedbackModel;
 
+/**
+ * @author Sidney Lins <slinstj@gmail.com>
+ */
 class RatingAction extends Action
 {
     public $modelConfigs = [];
