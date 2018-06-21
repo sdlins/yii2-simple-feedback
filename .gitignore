@@ -9,6 +9,9 @@
 # netbeans project files
 nbproject
 
+# vscode project files
+.vscode/
+
 # zend studio for eclipse project files
 .buildpath
 .project
